@@ -17,7 +17,7 @@
 
 .brand-logos-section.brand-logos-marquee {
   display: flex;
-  gap: 40px;
+  gap: 20px;
   animation: brand-marquee 40s linear infinite;
   will-change: transform;
   min-width: max-content;

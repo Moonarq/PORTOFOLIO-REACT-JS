@@ -18,7 +18,7 @@ const brands = [
   { name: "Heritage", textClass: "brand-classic" },
   { name: "Chronicle", textClass: "brand-editorial" },
   { name: "Prestige", textClass: "brand-refined" },
-  { name: "CODE X", textClass: "brand-tech" },
+
 ];
 
 const BrandLogos = () => (
