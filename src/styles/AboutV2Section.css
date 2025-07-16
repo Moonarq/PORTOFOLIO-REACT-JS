@@ -52,7 +52,7 @@
   outline: none;
   cursor: pointer;
   text-align: center;
-  margin-bottom: 8px;
+  margin-bottom: -8px;
 }
 .aboutv2-download-btn:hover, .aboutv2-download-btn:focus {
   background: #222;
