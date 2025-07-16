@@ -38,7 +38,7 @@ const cards = [
         </filter>
       </svg>
     ),
-    title: 'Design system & prototyping with Figma.'
+    title: 'Fast development & optimized workflow with Vite.'
   },
   {
     icon: (
@@ -65,7 +65,7 @@ const cards = [
         </filter>
       </svg>
     ),
-    title: 'Design system & prototyping with Figma.'
+    title: 'Next-level frontend & smooth UX UI with React.'
   },
   {
     icon: (
@@ -89,7 +89,7 @@ const cards = [
         </filter>
       </svg>
     ),
-    title: 'Design system & prototyping with Figma.'
+  title: 'Scalable systems & clean architecture in Laravel.'
   },
   {
     icon: (
