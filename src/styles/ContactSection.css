@@ -1,0 +1,208 @@
+/* Social Links Styles */
+.menu-footer-right-contact-fixed {
+  position: absolute;
+  left: 120px;
+  bottom: 32px;
+  z-index: 2;
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  pointer-events: auto;
+}
+.menu-footer-right-contact-fixed a {
+  color: #fff;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: 0.01em;
+  opacity: 0.92;
+  transition: opacity 0.2s, color 0.2s;
+}
+.menu-footer-right-contact-fixed a:hover {
+  color: #a6bfff;
+  opacity: 1;
+  text-decoration: underline;
+}
+/* Extra text below contact button */
+.contact-extra-bottom-right {
+    position: absolute;
+    right: 130px;
+    bottom: 28px;
+    z-index: 2;
+    color: #fff;
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 1.25rem;
+    text-align: left;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    letter-spacing: 0.01em;
+    font-weight: 400;
+    margin-bottom: 16px;
+    line-height: 1.18;
+    width: max-content;
+    pointer-events: auto;
+    white-space: nowrap;
+}
+
+.contact-extra-mail {
+    color: #fff;
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-weight: 700;
+    text-decoration: none;
+    letter-spacing: 0.01em;
+    font-size: 1.05rem;
+}
+.contact-extra-mail:hover {
+    text-decoration: underline;
+}
+.contact-section-backtotop-row {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0 40px 0 40px;
+  box-sizing: border-box;
+  position: relative;
+  }
+  .contact-section-extra-right {
+    text-align: center;
+    font-size: 0.92rem;
+    margin-right: 0;
+  }
+  .contact-section-extra-sub {
+    font-size: 0.78rem;
+  }
+
+/* Contact Section Styles */
+.contact-section-header {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 60px;
+  padding: 0 24px 0 40px;
+  box-sizing: border-box;
+}
+
+.contact-section-number {
+  color: #fff;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  opacity: 0.7;
+  letter-spacing: 0.12em;
+  flex: 1;
+  text-align: left;
+  margin-left: 20px;
+}
+.contact-section-titlebar {
+  color: #fff;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  opacity: 0.7;
+  letter-spacing: 0.12em;
+  flex: 1;
+  text-align: center;
+}
+.contact-section-since {
+  color: #fff;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  opacity: 0.7;
+  letter-spacing: 0.12em;
+  flex: 1;
+  text-align: right;
+  padding-right: 32px;
+}
+
+.contact-section {
+  width: 100vw;
+  min-height: 95vh;
+  background: #000000;
+  background-image: 
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 200px 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  margin-top: 40px;
+  position: relative;
+}
+
+.contact-center {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-title-section {
+  color: #fff;
+  font-family: 'Montserrat', 'Arial Black', Arial, sans-serif;
+  font-size: 7vw;
+  font-weight: 900;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 0.01em;
+  line-height: 0.9;
+  margin: 0 0 48px 0;
+  padding: 0;
+  margin-top: -290px;
+  margin-left: -500px;
+}
+
+.contact-section-btn {
+    display: inline-block;
+    background: #fff;
+    color: #111;
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-weight: 700;
+    font-size: 1.08rem;
+    border: none;
+    border-radius: 28px;
+    padding: 12px 30px;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.10);
+    margin-top: 0;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+}
+
+.contact-btn-bottom-right {
+    position: absolute;
+    right: 130px;
+    bottom: 78px;
+    z-index: 2;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.10);
+}
+.contact-section-btn:hover {
+  background: #222;
+  color: #fff;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+}
+.menu-footer-right-contact {
+  display: flex;
+  gap: 30px;
+}
+
+.menu-footer-right-contact span {
+  font-size: 12px;
+  color: #666;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.menu-footer-right-contact span:hover {
+  color: white;
+}

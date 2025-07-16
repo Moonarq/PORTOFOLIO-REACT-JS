@@ -1,0 +1,106 @@
+/* Tambahan untuk menggantikan style inline di PortfolioSection.jsx */
+.portfolio-img-cursor {
+  transform: translate(-50%, -50%);
+}
+
+.portfolio-flowing-menu {
+  margin: 0px 0;
+  margin-left: 65px;
+}
+
+.portfolio-menu-text-block {
+  text-align: left;
+  width: 100%;
+}
+
+.portfolio-menu-subtitle {
+  font-size: 0.85rem;
+  color: #bdbdbd;
+  letter-spacing: 1px;
+  font-weight: 400;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  padding-left: 8px;
+  margin-top: 24px;
+  pointer-events: none;
+}
+
+.portfolio-menu-title {
+  font-size: 6.2rem;
+  color: #fff;
+  font-weight: 400;
+  line-height: 1.1;
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+  pointer-events: none;
+}
+
+.portfolio-menu-item {
+  border-bottom: 2px solid #fff;
+  background: transparent;
+  margin: 0;
+  padding: 32px 0 32px 0;
+  min-height: 180px;
+  box-shadow: none;
+  max-width: 1400px;
+}
+/* Fixed Portfolio Section CSS */
+.portfolio-section {
+  background: #000000;
+  background-image: 
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 200px 100%;
+  padding: 80px 0;
+  position: relative;
+  /* Pastikan tinggi section terdefinisi dengan baik */
+  min-height: 100vh;
+  overflow: hidden; /* Prevent content overflow issues */
+  margin-top: -80px;
+  margin-bottom: -150px; /* Sesuaikan margin atas untuk menghindari overlap */
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto 1fr;
+  gap: 40px 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  position: relative;
+  /* Hapus min-height yang bisa konflik */
+}
+
+/* Header - Lebih sederhana */
+.portfolio-header {
+  grid-column: 1 / 3;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 13px;
+  color: #b6b6b6;
+  padding: 32px 0;
+  letter-spacing: 1px;
+  margin-bottom: 40px;
+}
+
+.portfolio-section-number {
+  color: #fff;
+  font-weight: 600;
+  margin-left: -145px;
+}
+
+.portfolio-section-title {
+  color: #b6b6b6;
+  font-weight: 500;
+  margin-left: -1200px;
+}
+
+.portfolio-section-year {
+  color: #b6b6b6;
+  font-size: 12px;
+  font-weight: 400;
+  margin-right: -145px;
+}
+
+

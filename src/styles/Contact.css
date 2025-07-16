@@ -1,0 +1,104 @@
+/* Judul besar di sisi kiri halaman contact */
+.contact-left-title-container {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.contact-left-title {
+  font-size: 7vw;
+  font-weight: 900;
+  color: #fff;
+  line-height: 1;
+  margin: 180px 0 0 40px; /* lebih kebawah */
+  letter-spacing: -2px;
+  text-align: left;
+  text-transform: uppercase;
+  z-index: 10;
+}
+/* Container untuk posisi card form di kanan */
+.contact-form-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 80vh;
+  position: relative;
+  z-index: 2;
+}
+
+/* Contact Page Card Style */
+.contact-form-card {
+  background: #181818;
+  border-radius: 14px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.25);
+  border: 1px solid #333;
+  padding: 4rem 3vw 2.5rem 3vw;
+  width: 60vw;
+  max-width: 700px;
+  min-width: 350px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-right: 4vw;
+  margin-top: 30px; /* lebih kebawah */
+}
+
+.contact-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #fff;
+  text-align: left;
+}
+
+.contact-input-group {
+  width: 100%;
+}
+
+.contact-input, .contact-textarea {
+  width: 100%;
+  padding: 1rem 0.8rem;
+  border: none;
+  border-bottom: 2px solid #444;
+  background: transparent;
+  font-size: 1.1rem;
+  color: #fff;
+  outline: none;
+  transition: border-color 0.2s;
+  resize: none;
+}
+
+.contact-input:focus, .contact-textarea:focus {
+  border-bottom: 2px solid #fff;
+}
+
+.contact-textarea {
+  min-height: 70px;
+  max-height: 180px;
+}
+
+.contact-submit-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  padding-right: 1.6rem;
+  background: #111;
+  color: #fff;
+  border: none;
+  padding: 0.7rem 1.2rem;
+  width: max-content;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: background 0.2s;
+}
+
+.contact-submit-btn:hover {
+  background: #fff;
+  color: #181818;
+}
+

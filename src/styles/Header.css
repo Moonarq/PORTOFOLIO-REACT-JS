@@ -1,0 +1,120 @@
+/* Global reset for all outlines */
+* {
+  outline: none !important;
+}
+
+*:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+button {
+  outline: none !important;
+}
+
+button:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Header.css */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+  position: relative;
+  z-index: 100;
+  width: 100%;
+  box-sizing: border-box;
+  opacity: 0;
+  animation: slideInFromTop 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s forwards;
+  margin-bottom: 0;
+  background: #000000;
+  background-image: 
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 200px 100%;
+}
+
+.logo {
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: #fff;
+  font-family: 'Montserrat', Arial, sans-serif;
+  opacity: 0;
+  animation: slideInFromLeft 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.4s forwards;
+}
+
+.contact-btn {
+  background: #000;
+  border: 2px solid white;
+  color: white;
+  padding: 10px 24px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 2002;
+  position: relative;
+  animation: slideInFromRight 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.4s both;
+  margin-top: 10px;
+  outline: none !important;
+  box-shadow: none !important;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.contact-btn:hover {
+  background: rgb(255, 255, 255);
+  color: black;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  outline: none !important;
+  border: 2px solid white !important;
+}
+
+.contact-btn:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  border: 2px solid white !important;
+}
+
+.contact-btn:active {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.contact-btn:focus-visible {
+  outline: none !important;
+}
+
+.header-right {
+  position: relative;
+  z-index: 2001;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header {
+    padding: 20px 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 20px 20px;
+  }
+  
+  .contact-btn {
+    padding: 8px 18px;
+    font-size: 12px;
+  }
+  
+  .logo {
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,125 @@
+
+
+.carousel-dot {
+  width: 36px;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.25);
+  display: inline-block;
+  transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+  cursor: pointer;
+}
+
+.carousel-dot.active {
+  background: #fff;
+}
+
+.carousel-dot:hover {
+  background: rgba(255, 255, 255, 0.4);
+  transform: scale(1.02);
+}
+/* Carousel slider styles */
+.hero-widget-carousel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-widget-slider {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  will-change: transform;
+}
+
+.hero-widget-slide {
+  width: 100%;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.hero-widget-arrow.hero-widget-arrow-prev {
+  left: 32px;
+  right: auto;
+  bottom: 32px;
+}
+
+.hero-widget-dots {
+  display: flex;
+  gap: 8px;
+  position: absolute;
+  left: 32px;
+  bottom: 32px;
+  z-index: 12;
+}
+
+
+.hero-widget-card {
+  position: absolute;
+  top: 242px;
+  right: 42px;
+  width: 340px;
+  min-height: 420px;
+  background: #19191a;
+  border-radius: 20px;
+  box-shadow: 0 4px 32px 0 rgba(0,0,0,0.18);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 36px 32px 32px 32px;
+  z-index: 10;
+}
+
+.hero-widget-icon {
+  width: 100%;
+  min-height: 180px;
+  background: #000;
+  border-radius: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 32px;
+  box-shadow: 0 2px 16px 0 rgba(0,0,0,0.10);
+  overflow: hidden;
+}
+
+.hero-widget-title {
+  color: #fff;
+  font-size: 1.45rem;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-weight: 500;
+  margin-bottom: auto;
+  margin-top: 8px;
+  line-height: 1.2;
+}
+
+.hero-widget-arrow {
+  position: absolute;
+  right: 32px;
+  bottom: 32px;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 11;
+}
+
+@media (max-width: 900px) {
+  .hero-widget-card {
+    position: static;
+    width: 100%;
+    min-width: 0;
+    margin-top: 32px;
+    margin-right: 0;
+    left: 0;
+    right: 0;
+  }
+}

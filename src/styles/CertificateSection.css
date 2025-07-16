@@ -1,0 +1,275 @@
+.certificate-section {  
+  background: #000000;
+  background-image: 
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 200px 100%;
+  padding: 0 0 10px 0;  
+  min-height: 100vh;  
+  margin-top: 10px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.certificate-header {   
+  display: flex;   
+  justify-content: space-between;   
+  align-items: center;   
+  font-family: 'Montserrat', Arial, sans-serif;   
+  font-size: 15px;   
+  color: #b6b6b6;   
+  padding: 32px 0 0 0;   
+  letter-spacing: 1px;   
+  margin-bottom: 40px;    
+} 
+
+.certificate-section-number {   
+  color: #fff;   
+  font-weight: 600;   
+  margin-left: 55px;
+  font-size: 0.82em;
+} 
+
+.certificate-section-title {   
+  font-weight: 500;   
+  margin-left: 70px;
+  font-size: 0.78em;
+  letter-spacing: 0.15em;
+  opacity: 0.8;
+} 
+
+.certificate-section-year {   
+  color: #b6b6b6;   
+  font-size: 0.82em;   
+  font-weight: 400;   
+  margin-right: 65px; 
+} 
+
+.certificate-content {  
+  display: flex;  
+  justify-content: space-between;  
+  align-items: flex-start;  
+  width: 100%;  
+  margin-top: 40px;
+  flex: 1 1 auto;
+}
+
+
+.certificate-title {
+  font-family: 'Montserrat', 'Arial Black', Arial, sans-serif;
+  font-size: 7vw;
+  font-weight: 900;
+  color: #fff;
+  text-transform: uppercase;
+  line-height: 0.9;
+  margin-left: 55px;
+  display: inline-block;
+  letter-spacing: -0.03em;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.certificate-title .word {
+  display: inline-block;
+  margin-right: 24px;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.certificate-title.animate .word:nth-child(1) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.1s;
+}
+.certificate-title.animate .word:nth-child(3) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.3s;
+}
+
+.certificate-desc {   
+  font-family: 'Montserrat', Arial, sans-serif;   
+  font-size: 1vw;   
+  color: #fff;   
+  max-width: 400px;   
+  text-align: left;   
+  margin-right: 45px;   
+  margin-top: 110px; 
+} 
+
+.certificate-accordion-list {  
+  margin-top: 40px;  
+  width: 100%;  
+  max-width: 700px;  
+  margin-left: auto;  
+  margin-right: 80px;  
+  margin-top: 90px;
+  flex: 1 1 auto;
+  min-height: unset;
+} 
+
+.certificate-accordion-item {   
+  border-bottom: 1px solid #333;   
+  padding: 24px 0;   
+  transition: all 0.3s ease;
+  background: transparent;
+}
+.certificate-accordion-item:last-child {
+  border-bottom: 1px solid #333;
+}
+
+.certificate-accordion-header {   
+  display: flex;   
+  justify-content: space-between;   
+  align-items: center;   
+  cursor: pointer;   
+  color: #fff;   
+  font-size: 1.3rem;
+  padding: 0;
+}
+
+.certificate-accordion-left {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.certificate-dots {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-top: -12px; /* Adjusted to align with header */
+  margin-right: 30px;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background 0.2s, width 0.2s, height 0.2s;
+}
+
+.dot.active {
+  background-color: #fff;
+}
+
+.dot.inactive {
+  background-color: #333;
+}
+
+.certificate-accordion-text {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: -10px;
+}  
+
+.certificate-accordion-text strong {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-weight: 700;
+  font-size: 1.08rem;
+  color: #fff;
+  margin-bottom: 2px;
+  display: block;
+  letter-spacing: 0.01em;
+}
+
+.certificate-accordion-sub {   
+  color: #888;   
+  font-size: 0.85rem;   
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  margin-top: 0px;
+  font-family: 'Montserrat', Arial, sans-serif;
+  letter-spacing: 0.5px;
+  margin-top: 2px;
+}  
+
+.certificate-accordion-icon {   
+  font-size: 1.2rem;   
+  transition: transform 0.3s ease;   
+  margin-left: 16px;
+  color: #fff;
+  font-weight: bold;
+} 
+
+.certificate-accordion-icon.open {   
+  transform: rotate(180deg); 
+}  
+
+.certificate-accordion-body {   
+  display: flex;   
+  gap: 40px;   
+  margin-top: 32px;   
+  align-items: flex-start;
+  animation: slideDown 0.3s ease;
+  margin-left: 44px; /* Align with text content */
+}  
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.certificate-accordion-img {   
+  width: 280px;   
+  height: 200px;
+  border-radius: 12px;   
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4);   
+  object-fit: cover;
+  background: #222;
+}  
+
+.certificate-accordion-body ul {   
+  list-style: none;   
+  padding: 0;   
+  margin: 0;   
+  color: #fff;   
+  font-size: 1rem;
+  font-family: 'Montserrat', Arial, sans-serif;
+  margin-top: 40px;
+} 
+
+
+.certificate-accordion-body li {   
+  margin-bottom: 8px;
+  font-weight: 500;
+  font-size: 0.82rem;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  letter-spacing: 0.01em;
+} 
+
+  
+.certificate-accordion-body li::before {
+  content: "✓";
+  color: #fff;
+  font-weight: bold;
+  margin-right: 10px;
+  font-size: 0.9em;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Hover effects removed */
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .certificate-accordion-body {
+    flex-direction: column;
+    gap: 24px;
+  }
+  
+  .certificate-accordion-img {
+    width: 100%;
+    max-width: 280px;
+  }
+} 
