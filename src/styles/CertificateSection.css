@@ -5,7 +5,7 @@
   background-size: 200px 100%;
   padding: 0 0 10px 0;  
   min-height: 100vh;  
-  margin-top: 10px;
+  margin-top: -10px;
   position: relative;
   display: flex;
   flex-direction: column;
