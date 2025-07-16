@@ -42,19 +42,23 @@ const Contact = () => {
             }}
           />
           <div className="contact-form-container">
-            <form className="contact-form-card">
+            <form
+              className="contact-form-card"
+              action="https://formspree.io/f/movlqpzy"
+              method="POST"
+            >
               <h2 className="contact-title">Contact</h2>
               <div className="contact-input-group">
-                <input className="contact-input" type="text" placeholder="Your name" />
+                <input className="contact-input" type="text" name="name" placeholder="Your name" required />
               </div>
               <div className="contact-input-group">
-                <input className="contact-input" type="email" placeholder="Your email" />
+                <input className="contact-input" type="email" name="email" placeholder="Your email" required />
               </div>
               <div className="contact-input-group">
-                <input className="contact-input" type="text" placeholder="Subject" />
+                <input className="contact-input" type="text" name="subject" placeholder="Subject" />
               </div>
               <div className="contact-input-group">
-                <textarea className="contact-textarea" placeholder="Your Message" />
+                <textarea className="contact-textarea" name="message" placeholder="Your Message" required />
               </div>
               <button className="contact-submit-btn" type="submit">
                 <span role="img" aria-label="mail"></span> Send
