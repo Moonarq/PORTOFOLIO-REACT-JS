@@ -1,15 +1,27 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Threads from "../blocks/Backgrounds/Threads/Threads";
 import Header from "../components/Header";
 import "../styles/Contact.css";
 const Contact = () => {
+  const titleRef = useRef(null);
+  useEffect(() => {
+    setTimeout(() => {
+      if (titleRef.current) {
+        titleRef.current.classList.add('animate');
+      }
+    }, 100);
+  }, []);
   return (
     <div className="contact-page-container contact-bg-grid" style={{position: 'relative', minHeight: '100vh', overflow: 'hidden'}}>
       {/* Gunakan Header dan kirimkan currentPage="contact" agar highlight benar */}
       <Header currentPage="contact" showLanyard={false} />
       <div style={{display: 'flex', width: '100%'}}>
         <div className="contact-left-title-container">
-          <h1 className="contact-left-title">LETS<br />WORK TOGETHER</h1>
+          <h1 className="contact-left-title" ref={titleRef}>
+            <span className="line">LETS</span>
+            <span className="line">WORK</span>
+            <span className="line">TOGETHER</span>
+          </h1>
         </div>
         <div style={{flex: 2, display: 'flex', flexDirection: 'column'}}>
           {/* Grid background */}
@@ -21,7 +33,6 @@ const Contact = () => {
             height: '100%',
             background: '#000',
             backgroundImage: 'linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)',
-            backgroundSize: '200px 100%',
             zIndex: 0,
             pointerEvents: 'none',
           }} />
