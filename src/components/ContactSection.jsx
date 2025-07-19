@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../styles/ContactSection.css';
 import LiquidChrome from '../blocks/Backgrounds/LiquidChrome/LiquidChrome';
 
@@ -40,7 +41,7 @@ const ContactSection = () => {
           {/* Tambahan konten jika perlu */}
         </div>
       </div>
-      <a href="/contact" className="contact-section-btn contact-btn-bottom-right">CONTACT NOW</a>
+      <Link to="/contact" className="contact-section-btn contact-btn-bottom-right">CONTACT NOW</Link>
       <div className="menu-footer-right-contact-fixed">
         <a href="https://www.instagram.com/kelvianov/" target="_blank" rel="noopener noreferrer">
           <span>INSTAGRAM ↗</span>
