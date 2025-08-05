@@ -13,6 +13,7 @@
   width: max-content;
   z-index: 2;
 }
+
 /* HeroSection.css */
 .hero-section {
   display: block;
@@ -26,7 +27,6 @@
     linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
   background-size: 200px 100%;
   margin-bottom: 0;
-  /* padding-bottom: 100px; */
   overflow: hidden;
 }
 
@@ -38,8 +38,8 @@
   z-index: 2;
   overflow: visible;
   height: 100%;
-  
 }
+
 .hero-content-left {
   display: flex;
   flex-direction: column;
@@ -47,7 +47,6 @@
   justify-content: flex-start;
   padding-left: 4vw;
   padding-bottom: 0;
-  /* padding-top: 24vh; */
 }
 
 .hero-subtitle {
@@ -63,7 +62,7 @@
   animation: fadeInScale 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.2s forwards;
 }
 
- .hero-title {
+.hero-title {
   font-size: clamp(38px, 4vw, 64px);
   font-weight: 700;
   letter-spacing: 0;
@@ -85,14 +84,14 @@
   z-index: 3;
 }
 
- .hero-title-line {
+.hero-title-line {
   display: block;
   font-family: 'Arial Black', 'Montserrat', Arial, sans-serif;
   font-weight: 900;
   letter-spacing: 0.5px;
 }
 
-/* Hero Image */
+/* Hero Image - Default */
 .liquid-bg-container {
   margin-left: 40px;
   position: absolute;
@@ -107,9 +106,25 @@
   pointer-events: none;
 }
 
+/* Monitor 24 inch - Liquid Chrome diperbesar */
+@media screen and (min-width: 1920px) and (max-width: 1920px) {
+  .liquid-bg-container {
+    width: 75%; /* Dikurangi dari 85% ke 75% */
+    height: 900px; /* Diperbesar ke bawah dari 800px ke 900px */
+    margin-left: 40px; /* Kembali ke posisi original */
+    border-radius: 35px; /* Sedikit dikurangi */
+  }
+}
 
-/* Navigation Points */
-
+/* Alternative media query untuk monitor 24 inch */
+@media screen and (min-width: 1900px) and (max-width: 1920px) {
+  .liquid-bg-container {
+    width: 75%;
+    height: 860px;
+    margin-left: 40px;
+    border-radius: 35px;
+  }
+}
 
 /* Responsive */
 @media (max-width: 768px) {
@@ -143,16 +158,28 @@
   .hero-title {
     font-size: clamp(90px, 22vw, 140px);
   }
-
+  
   .hero-image img {
     width: 100%;
     max-width: 650px;
     height: 400px;
+  }
+  
+  .liquid-bg-container {
+    width: 71%;
+    height: 400px;
+    margin-left: 20px;
   }
 }
 
 @media (max-width: 480px) {
   .hero-section {
     padding: 0 10px;
+  }
+  
+  .liquid-bg-container {
+    width: calc(100% - 20px);
+    height: 300px;
+    margin-left: 10px;
   }
 }

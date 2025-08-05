@@ -4,10 +4,11 @@
   right: 40px;
   z-index: 20;
 }
+
 .ccw-circle {
   min-width: 340px;
   min-height: 100px;
-background: #000;
+  background: #000;
   border-radius: 20px;
   border: 2px solid #fff;
   display: flex;
@@ -17,6 +18,7 @@ background: #000;
   box-shadow: none;
   padding: 28px 54px 17px 42px;
 }
+
 .ccw-value {
   font-size: 3.7rem;
   font-weight: 800;
@@ -30,6 +32,7 @@ background: #000;
   justify-content: center;
   width: 100%;
 }
+
 .ccw-label {
   color: #bdbdbd;
   font-size: 0.98rem;
@@ -48,11 +51,13 @@ background: #000;
   word-break: break-word;
   white-space: normal;
 }
+
 .ccw-dots {
   display: flex;
   justify-content: center;
   gap: 10px;
 }
+
 .ccw-dot {
   width: 9px;
   height: 9px;
@@ -62,7 +67,76 @@ background: #000;
   display: inline-block;
   transition: background 0.2s, border 0.2s;
 }
+
 .ccw-dot.active {
   background: #fff;
   border: 1.2px solid #fff;
+}
+
+/* Monitor 24 inch - Corner Carousel Widget diperbesar dan kebawahin */
+@media screen and (min-width: 1920px) and (max-width: 1920px) {
+  .corner-carousel-widget {
+    top: 80px; /* Kebawahin dari 8px ke 80px */
+  }
+  
+  .ccw-circle {
+    min-width: 380px; /* Besarin dari 340px ke 380px */
+    min-height: 320px; /* Besarin dari 100px ke 320px */
+    padding: 55px 60px 70px 48px; /* Padding diperbesar, terutama bottom */
+  }
+  
+  .ccw-value {
+    font-size: 4.2rem; /* Font size diperbesar dari 3.7rem ke 4.2rem */
+    min-height: 4.8rem; /* Height diperbesar */
+  }
+  
+  .ccw-label {
+    font-size: 1.1rem; /* Font size diperbesar dari 0.98rem ke 1.1rem */
+    max-width: 250px; /* Max width diperbesar */
+    min-height: 1.9rem; /* Height diperbesar */
+    margin-bottom: 16px; /* Margin diperbesar */
+  }
+  
+  .ccw-dots {
+    gap: 12px; /* Gap diperbesar dari 10px ke 12px */
+  }
+  
+  .ccw-dot {
+    width: 10px; /* Dot size diperbesar dari 9px ke 10px */
+    height: 10px;
+  }
+}
+
+/* Alternative media query untuk monitor 24 inch */
+@media screen and (min-width: 1900px) and (max-width: 1920px) {
+  .corner-carousel-widget {
+    top: 4px; /* Kebawahin dari 8px ke 75px */
+  }
+  
+  .ccw-circle {
+    min-width: 370px; /* Besarin dari 340px ke 370px */
+    min-height: 310px; /* Besarin dari 100px ke 310px */
+    padding: 53px 58px 68px 46px; /* Padding diperbesar, terutama bottom */
+  }
+  
+  .ccw-value {
+    font-size: 4.0rem; /* Font size diperbesar dari 3.7rem ke 4.0rem */
+    min-height: 4.6rem; /* Height diperbesar */
+  }
+  
+  .ccw-label {
+    font-size: 1.05rem; /* Font size diperbesar dari 0.98rem ke 1.05rem */
+    max-width: 240px; /* Max width diperbesar */
+    min-height: 1.8rem; /* Height diperbesar */
+    margin-bottom: 15px; /* Margin diperbesar */
+  }
+  
+  .ccw-dots {
+    gap: 11px; /* Gap diperbesar dari 10px ke 11px */
+  }
+  
+  .ccw-dot {
+    width: 10px; /* Dot size diperbesar dari 9px ke 10px */
+    height: 10px;
+  }
 }
