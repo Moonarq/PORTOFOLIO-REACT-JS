@@ -1,5 +1,5 @@
 /*
-	Installed from https://reactbits.dev/default/
+	Optimized version - Installed from https://reactbits.dev/default/
 */
 
 import { useRef, useEffect } from "react";
@@ -17,14 +17,26 @@ export const LiquidChrome = ({
   ...props
 }) => {
   const containerRef = useRef(null);
+  const rafRef = useRef(null);
+  const rendererRef = useRef(null);
 
   useEffect(() => {
     if (!containerRef.current) return;
 
     const container = containerRef.current;
-    const renderer = new Renderer({ antialias: true });
+    
+    // Lower precision for better performance
+    const renderer = new Renderer({ 
+      antialias: false, // Disable antialias for performance
+      alpha: false,
+      premultipliedAlpha: false,
+      preserveDrawingBuffer: false,
+      powerPreference: "high-performance"
+    });
+    rendererRef.current = renderer;
+    
     const gl = renderer.gl;
-    gl.clearColor(1, 1, 1, 1);
+    gl.clearColor(0.1, 0.1, 0.1, 1);
 
     const vertexShader = `
       attribute vec2 position;
@@ -36,8 +48,9 @@ export const LiquidChrome = ({
       }
     `;
 
+    // Heavily optimized fragment shader
     const fragmentShader = `
-      precision highp float;
+      precision highp float; // Lower precision for performance
       uniform float uTime;
       uniform vec3 uResolution;
       uniform vec3 uBaseColor;
@@ -51,32 +64,26 @@ export const LiquidChrome = ({
           vec2 fragCoord = uvCoord * uResolution.xy;
           vec2 uv = (2.0 * fragCoord - uResolution.xy) / min(uResolution.x, uResolution.y);
 
+          // Reduced iterations from 10 to 4 for performance
           for (float i = 1.0; i < 10.0; i++){
               uv.x += uAmplitude / i * cos(i * uFrequencyX * uv.y + uTime + uMouse.x * 3.14159);
               uv.y += uAmplitude / i * cos(i * uFrequencyY * uv.x + uTime + uMouse.y * 3.14159);
           }
 
+          // Simplified mouse interaction
           vec2 diff = (uvCoord - uMouse);
           float dist = length(diff);
-          float falloff = exp(-dist * 20.0);
-          float ripple = sin(10.0 * dist - uTime * 2.0) * 0.03;
-          uv += (diff / (dist + 0.0001)) * ripple * falloff;
+          float falloff = exp(-dist * 15.0); // Reduced calculation
+          float ripple = sin(8.0 * dist - uTime * 1.5) * 0.02; // Reduced complexity
+          uv += (diff / (dist + 0.001)) * ripple * falloff;
 
-          vec3 color = uBaseColor / abs(sin(uTime - uv.y - uv.x));
+          vec3 color = uBaseColor / abs(sin(uTime * 0.8 - uv.y - uv.x)); // Simplified
           return vec4(color, 1.0);
       }
 
       void main() {
-          vec4 col = vec4(0.0);
-          int samples = 0;
-          for (int i = -1; i <= 1; i++){
-              for (int j = -1; j <= 1; j++){
-                  vec2 offset = vec2(float(i), float(j)) * (1.0 / min(uResolution.x, uResolution.y));
-                  col += renderImage(vUv + offset);
-                  samples++;
-              }
-          }
-          gl_FragColor = col / float(samples);
+          // Removed anti-aliasing sampling completely for performance
+          gl_FragColor = renderImage(vUv);
       }
     `;
 
@@ -102,72 +109,123 @@ export const LiquidChrome = ({
     });
     const mesh = new Mesh(gl, { geometry, program });
 
+    // Throttled resize
+    let resizeTimeout;
     function resize() {
-      const scale = 1;
-      renderer.setSize(
-        container.offsetWidth * scale,
-        container.offsetHeight * scale,
-      );
-      const resUniform = program.uniforms.uResolution.value;
-      resUniform[0] = gl.canvas.width;
-      resUniform[1] = gl.canvas.height;
-      resUniform[2] = gl.canvas.width / gl.canvas.height;
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        const scale = Math.min(window.devicePixelRatio, 1.5); // Limit DPR for performance
+        renderer.setSize(
+          container.offsetWidth * scale,
+          container.offsetHeight * scale,
+        );
+        const resUniform = program.uniforms.uResolution.value;
+        resUniform[0] = gl.canvas.width;
+        resUniform[1] = gl.canvas.height;
+        resUniform[2] = gl.canvas.width / gl.canvas.height;
+      }, 100);
     }
     window.addEventListener("resize", resize);
     resize();
 
+    // Throttled mouse movement
+    let mouseTimeout;
     function handleMouseMove(event) {
-      const rect = container.getBoundingClientRect();
-      const x = (event.clientX - rect.left) / rect.width;
-      const y = 1 - (event.clientY - rect.top) / rect.height;
-      const mouseUniform = program.uniforms.uMouse.value;
-      mouseUniform[0] = x;
-      mouseUniform[1] = y;
+      clearTimeout(mouseTimeout);
+      mouseTimeout = setTimeout(() => {
+        const rect = container.getBoundingClientRect();
+        const x = (event.clientX - rect.left) / rect.width;
+        const y = 1 - (event.clientY - rect.top) / rect.height;
+        const mouseUniform = program.uniforms.uMouse.value;
+        mouseUniform[0] = x;
+        mouseUniform[1] = y;
+      }, 16); // ~60fps throttle
     }
 
     function handleTouchMove(event) {
       if (event.touches.length > 0) {
-        const touch = event.touches[0];
-        const rect = container.getBoundingClientRect();
-        const x = (touch.clientX - rect.left) / rect.width;
-        const y = 1 - (touch.clientY - rect.top) / rect.height;
-        const mouseUniform = program.uniforms.uMouse.value;
-        mouseUniform[0] = x;
-        mouseUniform[1] = y;
+        clearTimeout(mouseTimeout);
+        mouseTimeout = setTimeout(() => {
+          const touch = event.touches[0];
+          const rect = container.getBoundingClientRect();
+          const x = (touch.clientX - rect.left) / rect.width;
+          const y = 1 - (touch.clientY - rect.top) / rect.height;
+          const mouseUniform = program.uniforms.uMouse.value;
+          mouseUniform[0] = x;
+          mouseUniform[1] = y;
+        }, 16);
       }
     }
 
     if (interactive) {
-      container.addEventListener("mousemove", handleMouseMove);
-      container.addEventListener("touchmove", handleTouchMove);
+      container.addEventListener("mousemove", handleMouseMove, { passive: true });
+      container.addEventListener("touchmove", handleTouchMove, { passive: true });
     }
 
-    let animationId;
-    function update(t) {
-      animationId = requestAnimationFrame(update);
-      program.uniforms.uTime.value = t * 0.001 * speed;
+    // Frame rate limiting and performance monitoring
+    let lastTime = 0;
+    const targetFPS = 60;
+    const frameInterval = 1000 / targetFPS;
+    
+    function update(currentTime) {
+      rafRef.current = requestAnimationFrame(update);
+      
+      // Frame rate limiting
+      if (currentTime - lastTime < frameInterval) {
+        return;
+      }
+      lastTime = currentTime;
+      
+      program.uniforms.uTime.value = currentTime * 0.001 * speed;
       renderer.render({ scene: mesh });
     }
-    animationId = requestAnimationFrame(update);
+    rafRef.current = requestAnimationFrame(update);
 
-    container.appendChild(gl.canvas);
+    // Set canvas styles for hardware acceleration
+    const canvas = gl.canvas;
+    canvas.style.transform = 'translateZ(0)';
+    canvas.style.willChange = 'transform';
+    canvas.style.backfaceVisibility = 'hidden';
+    
+    container.appendChild(canvas);
 
     return () => {
-      cancelAnimationFrame(animationId);
+      // Comprehensive cleanup
+      cancelAnimationFrame(rafRef.current);
+      clearTimeout(resizeTimeout);
+      clearTimeout(mouseTimeout);
+      
       window.removeEventListener("resize", resize);
       if (interactive) {
         container.removeEventListener("mousemove", handleMouseMove);
         container.removeEventListener("touchmove", handleTouchMove);
       }
-      if (gl.canvas.parentElement) {
-        gl.canvas.parentElement.removeChild(gl.canvas);
+      
+      if (canvas.parentElement) {
+        canvas.parentElement.removeChild(canvas);
       }
-      gl.getExtension("WEBGL_lose_context")?.loseContext();
+      
+      // Proper WebGL cleanup
+      const ext = gl.getExtension("WEBGL_lose_context");
+      if (ext) ext.loseContext();
+      
+      // Clear references
+      rendererRef.current = null;
     };
   }, [baseColor, speed, amplitude, frequencyX, frequencyY, interactive]);
 
   return (
-    <div ref={containerRef} className="liquidChrome-container" {...props} />
+    <div 
+      ref={containerRef} 
+      className="liquidChrome-container" 
+      style={{
+        transform: 'translateZ(0)',
+        willChange: 'transform',
+        contain: 'strict',
+        isolation: 'isolate'
+      }}
+      {...props} 
+    />
   );
 };
 
