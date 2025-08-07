@@ -7,7 +7,7 @@ import "../styles/PortfolioSection.css";
 const portfolioData = [
   {
     image: "/images/project1.0.png",
-    title: "Company Profile",
+    title: "monyenyo.com",
     subtitle: "COMMERCIAL WEBSITE",
     dots: 5,
     activeDot: 0,
