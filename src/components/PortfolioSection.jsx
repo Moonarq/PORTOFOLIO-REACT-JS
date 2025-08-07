@@ -11,7 +11,7 @@ const portfolioData = [
     subtitle: "COMMERCIAL WEBSITE",
     dots: 5,
     activeDot: 0,
-    link: "https://company-profile-react-js.vercel.app/",
+    link: "https://monyenyo.com/",
     external: true,
   },
   {
