@@ -34,7 +34,7 @@ const portfolioData = [
     image: undefined,
     title: "GITHUB",
     subtitle: "SEE MORE ON",
-    link: "https://github.com/kelvianov",
+    link: "https://github.com/Moonarq",
     external: true,
     disableHover: true,
   },
